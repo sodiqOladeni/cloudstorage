@@ -1,0 +1,55 @@
+package com.udacity.jwdnd.course1.cloudstorage.form;
+
+public class HomeForm {
+    private int noteId;
+    private String noteTitle;
+    private String noteDescription;
+    private int userId;
+    private String noteAction;
+
+    public HomeForm(String noteTitle, String noteDescription) {
+        this.noteTitle = noteTitle;
+        this.noteDescription = noteDescription;
+    }
+
+    public int getNoteId() {
+        return noteId;
+    }
+
+    public void setNoteId(int noteId) {
+//        if (!noteId.isEmpty())
+            this.noteId = noteId;// Integer.parseInt(noteId);
+    }
+
+    public String getNoteTitle() {
+        return noteTitle;
+    }
+
+    public void setNoteTitle(String noteTitle) {
+        this.noteTitle = noteTitle;
+    }
+
+    public String getNoteDescription() {
+        return noteDescription;
+    }
+
+    public void setNoteDescription(String noteDescription) {
+        this.noteDescription = noteDescription;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    public String getNoteAction() {
+        return noteAction;
+    }
+
+    public void setNoteAction(String noteAction) {
+        this.noteAction = noteAction;
+    }
+}
