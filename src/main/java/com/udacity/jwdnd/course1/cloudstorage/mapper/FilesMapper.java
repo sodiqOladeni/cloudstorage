@@ -2,10 +2,12 @@ package com.udacity.jwdnd.course1.cloudstorage.mapper;
 
 import com.udacity.jwdnd.course1.cloudstorage.model.Files;
 import org.apache.ibatis.annotations.*;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Mapper
+@Repository
 public interface FilesMapper {
     @Insert("INSERT into FILES (filename, contenttype, filesize, userid, filedata) " +
             "values (#{filename}, #{contenttype}, #{filesize}, #{userid}, #{filedata})")

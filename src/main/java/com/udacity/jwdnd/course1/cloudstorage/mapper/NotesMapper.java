@@ -2,10 +2,12 @@ package com.udacity.jwdnd.course1.cloudstorage.mapper;
 
 import com.udacity.jwdnd.course1.cloudstorage.model.Notes;
 import org.apache.ibatis.annotations.*;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Mapper
+@Repository
 public interface NotesMapper {
     @Insert("INSERT into notes (notetitle, notedescription, userid) " +
             "values (#{notetitle}, #{notedescription}, #{userid})")

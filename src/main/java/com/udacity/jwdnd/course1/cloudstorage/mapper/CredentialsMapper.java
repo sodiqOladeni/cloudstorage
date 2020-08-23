@@ -2,10 +2,12 @@ package com.udacity.jwdnd.course1.cloudstorage.mapper;
 
 import com.udacity.jwdnd.course1.cloudstorage.model.Credentials;
 import org.apache.ibatis.annotations.*;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Mapper
+@Repository
 public interface CredentialsMapper {
     @Insert("INSERT into CREDENTIALS (url, username, key, password, userid) " +
             "values (#{url}, #{username}, #{key}, #{password}, #{userid})")

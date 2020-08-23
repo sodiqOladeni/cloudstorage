@@ -16,9 +16,9 @@ public class HomeForm {
         return noteId;
     }
 
-    public void setNoteId(int noteId) {
-//        if (!noteId.isEmpty())
-            this.noteId = noteId;// Integer.parseInt(noteId);
+    public void setNoteId(String noteId) {
+        if (!noteId.isEmpty())
+            this.noteId = Integer.parseInt(noteId);
     }
 
     public String getNoteTitle() {

@@ -46,9 +46,13 @@ public class HomeController {
 
     @RequestMapping("/home")
     public String getHomePage(HomeForm homeForm, Model model) {
-        allNotes = homeService.getAllNotes(getUserId());
-        allCredentials = homeService.getAllCredentials(getUserId());
-        allFiles = homeService.getAllFiles(getUserId());
+        int userId = getUserId();
+        if (userId <= 0){
+            return "login";
+        }
+        allNotes = homeService.getAllNotes(userId);
+        allCredentials = homeService.getAllCredentials(userId);
+        allFiles = homeService.getAllFiles(userId);
         model.addAttribute("allNotes", allNotes);
         model.addAttribute("allCredentials", allCredentials);
         model.addAttribute("allFiles", allFiles);
@@ -120,7 +124,7 @@ public class HomeController {
             return "result";
         }
 
-        if (file.getSize() >= 1000000) {
+        if (file.getBytes().length >= 1000000 || file.getSize() >= 1000000) {
             model.addAttribute("resultErrorMsg", "File size is too large");
             model.addAttribute("resultError", true);
             return "result";
@@ -164,7 +168,9 @@ public class HomeController {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (!(authentication instanceof AnonymousAuthenticationToken)) {
             User user = userService.getUser(authentication.getName());
-            return user.getUserid();
+            if (user != null){
+                return user.getUserid();
+            }
         }
         return 0;
     }
